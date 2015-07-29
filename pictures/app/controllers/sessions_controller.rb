@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     end
 
 
-    def created
+    def create
         # look for a user record by email address:
         user = User.find_by(email: params[:email])
 

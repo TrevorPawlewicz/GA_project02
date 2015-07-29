@@ -1,11 +1,16 @@
 <!-- 155 7/28 -->
 <div class="page-header">
-    <h1>User</h1>
+    <h1>User:</h1>
 </div>
 
-<p class="lead"><%= user.name %></p>
+<p class="lead">STuff<%= @user.name %></p>
 
-<%= link_to "Follow", follow_user_path(@user), class: "btn btn-default" %>
+<% if current_user %>
+    <% if current_user != @user && !current_user.following?(@user) %>
+        <%= link_to "Follow", follow_user_path(@user),
+                            class: "btn btn-default" %>
+    <% end %>
+<% end %>
 
 <h2>Posts</h2>
 <%= render @posts %>

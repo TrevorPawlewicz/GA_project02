@@ -1,5 +1,9 @@
 <div class="page-header">
-    <h1>Home</h1>
+    <h1>Home</h1> <!-- 159 -->
+    <p>
+        <%= link_to "New Text Post", new_text_post_path, class: "btn btn-default" %>
+        <%= link_to "New Image Post", new_image_post_path, class: "btn btn-default" %>
+    </p>
 </div>
 
-<%= render @posts %> 
+<%= render @posts %>

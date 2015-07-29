@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   #                                  aliases:
   get 'signup', to: 'users#new', as: 'signup'
+  get 'follow/:id', to: 'users#follow', as: 'follow_user'
 
   # aliases used in application.html.erb
   get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'session#destroy', as: 'logout'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
   root 'posts#index'
 
