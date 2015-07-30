@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
     # password_digest:
     has_secure_password
-    validates :email, presence: true, uniqueness: true
+    validates :name, :email, presence: true, uniqueness: true
 
     #---------------------------------------------------------------------------
     # check to see if the current user is following another user

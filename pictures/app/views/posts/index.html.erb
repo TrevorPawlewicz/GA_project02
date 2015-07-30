@@ -1,8 +1,13 @@
 <div class="page-header">
     <h1>Home</h1> <!-- 159 -->
     <p>
-        <%= link_to "New Text Post", new_text_post_path, class: "btn btn-default" %>
-        <%= link_to "New Image Post", new_image_post_path, class: "btn btn-default" %>
+        <%= link_to new_text_post_path, class: "btn btn-default" do %>
+            <i class="glyphicon glyphicon-list-alt"></i> New Text Post
+        <% end %>
+
+        <%= link_to new_image_post_path, class: "btn btn-default" do %>
+            <i class="glyphicon glyphicon-camera"></i> New Image Post
+        <% end %>
     </p>
 </div>
 

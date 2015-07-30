@@ -3,7 +3,7 @@
     <h1>User: <%= @user.name %></h1>
 </div>
 
-<p class="lead"><%= @user.name %></p>
+<p class="lead"></p>
 
 <% if current_user %>
     <% if current_user != @user && !current_user.following?(@user) %>
