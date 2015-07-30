@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-    def show
-        @user = User.find(params[:id])
-        @posts = @user.posts.order("created_at DESC")
-    end
-    
+
     def new
         # instantiate a new User object and then render sign-up form:
         @user = User.new
@@ -20,6 +16,11 @@ class UsersController < ApplicationController
             # else, go to the new page
             render "new"
         end
+    end
+
+    def show
+        @user = User.find(params[:id])
+        @posts = @user.posts.order("created_at DESC")
     end
 
     #250-----------------------

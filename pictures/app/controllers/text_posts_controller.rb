@@ -27,6 +27,13 @@ class TextPostsController < ApplicationController
     end
 
 
+    def destroy
+        #@text_post.destory
+        #@test_post = TextPost.find(params[:id])
+        #redirect_to text_post_path(@text_post.post_id), notice: "shit destroyed!"
+    end
+
+
     #------------------------------------------------------------------------
     private
     def text_post_params

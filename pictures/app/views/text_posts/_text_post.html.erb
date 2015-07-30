@@ -4,10 +4,11 @@
         <h3 class="panel-title">
             <%= text_post.title %>
         </h3>
-        <%= link_to("#{time_ago_in_words text_post.created_at} ago",
-                    post_path(text_post)) %>
+        <!-- <%= link_to("#{time_ago_in_words text_post.created_at} ago", post_path(text_post)) %> -->
+        <%= "#{time_ago_in_words text_post.created_at} ago" %>
     </div>
 
+    <!-- adds padding to body 126-->
     <div class="panel-body">
         <p><em>By <%= link_to text_post.user.name, text_post.user %></em></p>
 
@@ -16,7 +17,10 @@
         <!-- the link should ONLY appear for the current user -->
         <% if text_post.user == current_user %>
             <p>
+                <!-- ex: link_to 'Edit', edit_text_post_path(text_post) generates HTML link:
+                    <a href="/text_posts/(id)/edit/">Edit</a> -->
                 <%= link_to 'Edit', edit_text_post_path(text_post), class: "btn btn-default" %>
+                <!--<%= link_to 'Destroy', edit_text_post_path(text_post), class: "btn btn-default" %>-->
             </p>
         <% end %>
     </div>

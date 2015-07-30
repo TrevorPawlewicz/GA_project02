@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
     has_many :text_posts, dependent: :destroy
     has_many :image_posts, dependent: :destroy
 
+    # trev
+    has_many :comments
+
     # password_digest:
     has_secure_password
     validates :email, presence: true, uniqueness: true

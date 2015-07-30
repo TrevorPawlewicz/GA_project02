@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-    belongs_to :post
+    belongs_to :post, touch: true
     belongs_to :user
 
     # do not allow a comment without vaild user & post id:
