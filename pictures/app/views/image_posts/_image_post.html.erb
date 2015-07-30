@@ -20,6 +20,8 @@
         <!-- 253 Only show edit if it is the current user -->
         <% if image_post.user == current_user %>
             <p>
+                <!-- ex: link_to 'Edit', edit_text_post_path(text_post) generates HTML link:
+                    <a href="/text_posts/(id)/edit/">Edit</a> -->
                 <%= link_to 'Edit', edit_image_post_path(image_post),
                                                     class: "btn btn-default" %>
             </p>
