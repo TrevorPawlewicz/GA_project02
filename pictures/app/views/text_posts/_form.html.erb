@@ -9,9 +9,30 @@
     <!-- text body -->
     <div class="form-group">
         <%= t.label :body %>
+
         <%= t.text_area :body, class: "form-control" %>
     </div>
-
     <%= t.submit class: "btn btn-primary" %>
     <%= link_to 'Cancel', :back, class: "btn btn-default" %>
 <% end %>
+
+<!-- p5.js shit -->
+<p></p><p></p>
+<button type="button" id="voice_to_words">Record Title</button>
+<script type="text/javascript">
+    var recordButton = $('#voice_to_words');
+
+    function voiceToText () {
+        var myRec = new p5.SpeechRec();
+        myRec.onResult = showResult;
+		myRec.start();
+
+    	function showResult(){
+    		if(myRec.resultValue==true) {
+    			console.log(myRec.resultString);
+                $('#text_post_title').val(myRec.resultString);
+    		}
+    	}
+    }
+    recordButton.on('click', voiceToText);
+</script>
