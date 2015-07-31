@@ -1,5 +1,9 @@
 class TextPostsController < ApplicationController
 
+    def index
+        @text_post = TextPost.all
+    end
+
     def new
         @text_post = TextPost.new
     end

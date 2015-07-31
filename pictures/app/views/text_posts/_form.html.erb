@@ -18,9 +18,12 @@
 
 <!-- p5.js shit -->
 <p></p><p></p>
-<button type="button" id="voice_to_words">Record Title</button>
+<button type="button" id="voice_to_title">Record Title</button>
+<button type="button" id="voice_to_body">Record Body</button>
 <script type="text/javascript">
-    var recordButton = $('#voice_to_words');
+    var recordTitle = $('#voice_to_title');
+    var recordBody = $('#voice_to_body');
+    var buttonId = 1;
 
     function voiceToText () {
         var myRec = new p5.SpeechRec();
@@ -28,11 +31,27 @@
 		myRec.start();
 
     	function showResult(){
-    		if(myRec.resultValue==true) {
-    			console.log(myRec.resultString);
-                $('#text_post_title').val(myRec.resultString);
-    		}
-    	}
+            if(myRec.resultValue==true) {
+                if (buttonId === 1) {
+                    console.log(myRec.resultString);
+                    $('#text_post_title').val(myRec.resultString);
+                }
+                else if (buttonId === 2) {
+                    console.log(myRec.resultString);
+                    $('#text_post_body').val(myRec.resultString);
+                }
+                else {
+                    console.log("We have recording issues, boss.");
+                }
+            }
+        }
     }
-    recordButton.on('click', voiceToText);
+    $(recordTitle).click(function() {
+        buttonId = 1;
+        voiceToText();
+    });
+    $(recordBody).click(function() {
+        buttonId = 2;
+        voiceToText();
+    });
 </script>
