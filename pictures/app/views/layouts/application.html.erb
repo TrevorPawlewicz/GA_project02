@@ -18,6 +18,9 @@
 
         <div class="pull-right">
             <% if(current_user) %>
+                <%= link_to root_path, class: "btn btn-default" do %>
+                    <i class="glyphicon glyphicon-home"></i> Home
+                <% end %>
                 <%= link_to 'Profile', current_user, class: "btn btn-info" %>
                 <!-- logging out should issue a delete request -->
                 <%= link_to 'Log out', logout_path, method: :delete, class: "btn btn-danger" %>
